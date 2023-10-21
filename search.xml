@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux与Windows共存时间问题</title>
+      <link href="/2023/10/21/Linux%E4%B8%8EWindows%E5%85%B1%E5%AD%98%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/10/21/Linux%E4%B8%8EWindows%E5%85%B1%E5%AD%98%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux与Windows双系统共存时，由于两者的时间计算策略不同，导致两者时间相差8h。"><a href="#Linux与Windows双系统共存时，由于两者的时间计算策略不同，导致两者时间相差8h。" class="headerlink" title="Linux与Windows双系统共存时，由于两者的时间计算策略不同，导致两者时间相差8h。"></a>Linux与Windows双系统共存时，由于两者的时间计算策略不同，导致两者时间相差8h。</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>主板BIOS中有一个时间，Windows会认为它就是当地的时间，而Linux则会认为它是UTC世界时间，会在此基础上+8h(时区不同结果不同)作为最终结果。Windows进行时间同步时会将当前时间直接存入BIOS，而Linux会在此基础上-8h后再存入BIOS。这时启动Windows，Windows会认为当前BIOS时间为当地时间，就会出现比真实时间慢8h的情况。</p><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><h3 id="以Kali-Linux为例"><a href="#以Kali-Linux为例" class="headerlink" title="以Kali Linux为例:"></a>以Kali Linux为例:</h3><h4 id="完整"><a href="#完整" class="headerlink" title="完整:"></a>完整:</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl status         </span><br><span class="line">               Local time: 六 2023-10-21 09:24:02 CST</span><br><span class="line">           Universal time: 六 2023-10-21 01:24:02 UTC</span><br><span class="line">                 RTC time: 六 2023-10-21 01:24:02</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: no</span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl set-local-rtc 1</span><br><span class="line">                                                                                                    </span><br><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl status         </span><br><span class="line">               Local time: 六 2023-10-21 09:24:31 CST</span><br><span class="line">           Universal time: 六 2023-10-21 01:24:31 UTC</span><br><span class="line">                 RTC time: 六 2023-10-21 09:24:31</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: no</span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: <span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line">Warning: The system is configured to <span class="built_in">read</span> the RTC time <span class="keyword">in</span> the <span class="built_in">local</span> time zone.</span><br><span class="line">         This mode cannot be fully supported. It will create various problems</span><br><span class="line">         with time zone changes and daylight saving time adjustments. The RTC</span><br><span class="line">         time is never updated, it relies on external facilities to maintain it.</span><br><span class="line">         If at all possible, use RTC <span class="keyword">in</span> UTC by calling</span><br><span class="line">         <span class="string">&#x27;timedatectl set-local-rtc 0&#x27;</span>.</span><br><span class="line">                                                                                                    </span><br><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="仅命令"><a href="#仅命令" class="headerlink" title="仅命令:"></a>仅命令:</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl status</span><br><span class="line"></span><br><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl set-local-rtc 1</span><br><span class="line"></span><br><span class="line">┌──(nancy㉿Nancy-Kali)-[~]</span><br><span class="line">└─$ timedatectl status</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 部长自用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CMake</title>
       <link href="/2023/10/19/cmake%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/10/19/cmake%E7%AC%94%E8%AE%B0/</url>
