@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Principles of Compiler Design</title>
+      <link href="/2024/05/12/Principles-of-Compiler-Design/"/>
+      <url>/2024/05/12/Principles-of-Compiler-Design/</url>
+      
+        <content type="html"><![CDATA[<h1 id="引论"><a href="#引论" class="headerlink" title="引论"></a>引论</h1><h2 id="编译器与解释器"><a href="#编译器与解释器" class="headerlink" title="编译器与解释器"></a>编译器与解释器</h2><h3 id="编译器（C-C-）"><a href="#编译器（C-C-）" class="headerlink" title="编译器（C/C++）"></a>编译器（C/C++）</h3><ul><li>读入某种语言（源语言）编写的程序</li><li>直接输出另一种语言（目标语言）编写的程序</li><li>通常目标程序可执行</li></ul><h3 id="解释器（Python-Java）"><a href="#解释器（Python-Java）" class="headerlink" title="解释器（Python/Java）"></a>解释器（Python/Java）</h3><ul><li>直接利用用户输入执行源程序中的操作</li><li>不生成目标程序，而根据语义直接运行</li></ul><h2 id="编译器的结构"><a href="#编译器的结构" class="headerlink" title="编译器的结构"></a>编译器的结构</h2><h3 id="前端（分析部分）"><a href="#前端（分析部分）" class="headerlink" title="前端（分析部分）"></a>前端（分析部分）</h3><blockquote><p>前端部分是<strong>机器无关</strong>的。</p></blockquote><ul><li>把源程序分解成组成要素、相应的语法结构</li><li>依此结构创建源程序的中间表示</li><li>收集源程序相关的信息，存放到符号表</li></ul><h3 id="后端（综合部分）"><a href="#后端（综合部分）" class="headerlink" title="后端（综合部分）"></a>后端（综合部分）</h3><blockquote><p>后端部分是<strong>机器有关</strong>的。</p></blockquote><ul><li>根据中间表示和符号表信息构造目标程序</li></ul><h1 id="编译器的工作步骤"><a href="#编译器的工作步骤" class="headerlink" title="编译器的工作步骤"></a>编译器的工作步骤</h1><blockquote><p><em>字符流</em> -&gt; <strong>词法分析器</strong> -&gt; <em>符号流</em> -&gt; <strong>语法分析</strong> -&gt; <em>语法树</em> -&gt; <strong>语义分析</strong> -&gt; <em>语法树</em> -&gt; <strong>中间代码生成器</strong> -&gt; <em>中间表示形式</em> -&gt; <strong>机器无关代码优化器</strong> -&gt; <em>中间表示形式</em> -&gt; <strong>代码生成器</strong> -&gt; <em>目标机器语言</em> -&gt; <strong>机器相关代码优化器</strong> -&gt; <em>目标机器语言</em></p><p><em>符号表</em></p></blockquote><h2 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ol><li>读入字符流，组成词素，输出词法单元序列</li><li>过滤空白、换行、制表符、注释等</li><li>将词素添加到符号表中</li><li>在逻辑上独立于语法分析，但是通常和语法分析器处于同一趟中（词法分析器与语法分析器有交互）</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 部长自用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Compiler Design </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++可变参数列表</title>
       <link href="/2024/05/11/C-%E5%BD%A2%E5%8F%82%E5%8C%85/"/>
       <url>/2024/05/11/C-%E5%BD%A2%E5%8F%82%E5%8C%85/</url>
@@ -21,8 +46,6 @@
         <tags>
             
             <tag> C++ </tag>
-            
-            <tag> OS </tag>
             
         </tags>
       
